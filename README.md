@@ -28,13 +28,4 @@ This project builds and evaluates a machine learning regression model to predict
 
 - Correlation heatmap
 - Predicted vs Actual plot  
-  *(saved as: `figures/actual_vs_predicted.png`)*
 
----
-
-## 🚀 How to Run
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git
-   cd YOUR_REPO
