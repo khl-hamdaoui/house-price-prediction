@@ -56,7 +56,7 @@ portfolio_theme <- theme_minimal() +
 
 # Correlation matrix with significance
 cor_matrix <- cor(housing_data)
-png("correlation_matrix.png", width = 8, height = 6, units = "in", res = 300)
+png("images/correlation_matrix.png", width = 8, height = 6, units = "in", res = 300)
 corrplot(cor_matrix, method = "color", type = "upper",
          tl.cex = 0.7, tl.col = "black",
          addCoef.col = "black", number.cex = 0.6,
@@ -71,7 +71,7 @@ target_dist <- ggplot(housing_data, aes(x = Home_Value)) +
        x = "Median Home Value ($1000s)", y = "Count") +
   portfolio_theme
 
-ggsave("home_value_distribution.png", target_dist, width = 8, height = 6)
+ggsave("images/home_value_distribution.png", target_dist, width = 8, height = 6)
 
 # ----------------------------
 # 4. Model Development
@@ -117,7 +117,7 @@ avp_plot <- ggplot(results, aes(x = Actual, y = Predicted)) +
   scale_x_continuous(labels = scales::dollar_format(prefix = "$")) +
   scale_y_continuous(labels = scales::dollar_format(prefix = "$"))
 
-ggsave("actual_vs_predicted.png", avp_plot, width = 10, height = 8)
+ggsave("images/actual_vs_predicted.png", avp_plot, width = 10, height = 8)
 
 # Feature importance visualization
 importance <- importance(rf_model)
@@ -134,7 +134,7 @@ var_plot <- ggplot(var_importance, aes(x = reorder(Feature, Importance), y = Imp
   portfolio_theme +
   theme(panel.grid.major.y = element_blank())
 
-ggsave("feature_importance.png", var_plot, width = 10, height = 6)
+ggsave("images/feature_importance.png", var_plot, width = 10, height = 6)
 
 # ----------------------------
 # 6. Performance Metrics
@@ -163,4 +163,4 @@ residual_plot <- ggplot(results, aes(x = Predicted, y = Actual - Predicted)) +
   portfolio_theme +
   scale_x_continuous(labels = scales::dollar_format(prefix = "$"))
 
-ggsave("residual_analysis.png", residual_plot, width = 10, height = 8)
+ggsave("images/residual_analysis.png", residual_plot, width = 10, height = 8)
